@@ -60,7 +60,7 @@ def update_coinmarketcap(currency):
   _db = dataset.connect(db_name, row_type=stuf)
   _table = _db['coinmarketcap']
   
-  _api = "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert={}"
+  _api = "https://api.coinmarketcap.com/v1/ticker/dash/?convert={}"
   _query = _api.format(currency)
   
   print("PYXPUB - FETCH: " + _query)
@@ -88,9 +88,9 @@ def update_db(source, currency):
     return 0
   
   if source == 'cryptocompare':
-    _api = "https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms={currencies}"
+    _api = "https://min-api.cryptocompare.com/data/price?fsym=DASH&tsyms={currencies}"
   else:
-    _api = "https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms={currencies}&e={source}"
+    _api = "https://min-api.cryptocompare.com/data/price?fsym=DASHtsyms={currencies}&e={source}"
   
   _string = ','.join(map(str, SOURCES[source]))
   _filler = {'currencies': _string,
